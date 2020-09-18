@@ -1,0 +1,11 @@
+// A MUX which outputs A AND B if sel == 0 else outputs A OR B
+
+CHIP AndMuxOr {
+    IN a, b, sel;
+    OUT out;
+
+    PARTS:
+    And(a=a, b=b, out=andOut);
+    Or(a=a, b=b, out=orOut);
+    Mux(a=andOut, b=orOut, sel=sel, out=out);
+}
